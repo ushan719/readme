@@ -1,0 +1,94 @@
+Exercise - 2
+___________
+Q1
+___________
+import java.util.Scanner;
+
+public class FactorialCalculator {
+    public static int calculateFactorial(int number) {
+        // Base case: factorial of 0 is 1
+        if (number == 0) {
+            return 1;
+        }
+        
+        // Recursive case: multiply the number with factorial of (number - 1)
+        return number * calculateFactorial(number - 1);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a positive integer: ");
+        int number = scanner.nextInt();
+        
+        // Validate input
+        if (number < 0) {
+            System.out.println("Invalid input. Please enter a positive integer.");
+        } else {
+            int factorial = calculateFactorial(number);
+            System.out.println("Factorial of " + number + " is: " + factorial);
+        }
+    }
+}
+___________
+Q2 
+___________
+public class ArraySumCalculator {
+    public static int calculateSumRecursive(int[] arr, int index) {
+        if (index == arr.length) {
+            return 0;
+        }
+        return arr[index] + calculateSumRecursive(arr, index + 1);
+    }
+
+    public static int calculateSumIterative(int[] arr) {
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+		
+		/*
+		To use System.nanoTime(), you don't need to import a specific package 
+		because System is part of the java.lang package, which is automatically 
+		imported in every Java program by default.
+		*/
+
+        // Recursive sum calculation
+        long recursiveStartTime = System.nanoTime();
+        int recursiveSum = calculateSumRecursive(arr, 0);
+        long recursiveEndTime = System.nanoTime();
+        long recursiveExecutionTime = recursiveEndTime - recursiveStartTime;
+        System.out.println("Recursive Sum: " + recursiveSum);
+        System.out.println("Recursive Execution Time (in nanoseconds): " + recursiveExecutionTime);
+
+        // Iterative sum calculation
+        long iterativeStartTime = System.nanoTime();
+        int iterativeSum = calculateSumIterative(arr);
+        long iterativeEndTime = System.nanoTime();
+        long iterativeExecutionTime = iterativeEndTime - iterativeStartTime;
+        System.out.println("Iterative Sum: " + iterativeSum);
+        System.out.println("Iterative Execution Time (in nanoseconds): " + iterativeExecutionTime);
+    }
+}
+___________
+Q3
+___________
+public class CombinationGenerator {
+    private static void generateCombinations(char[] chars, String currentCombination, int index) {
+        System.out.println(currentCombination);  // Print the current combination
+
+        for (int i = index; i < chars.length; i++) {
+            generateCombinations(chars, currentCombination + chars[i], i + 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        char[] chars = {'a', 'b'};
+
+        generateCombinations(chars, "", 0);
+    }
+}

@@ -1,0 +1,48 @@
+my sql 
+
+DESCRIBE table name
+DESC table name
+SHOW databases
+use database_name
+insert into tablename(columnnamelist)(values());
+ select * from table_name
+drop table_name
+drop database name
+select columnlist from tablename
+select*from table name
+
+select columnlist from tablename where condition(can use and , or, as condition)
+
+update table_name set cholumn1 = new value where condition
+
+delete queray
+on delete cascasde
+
+
+table and column aliases
+select monile_no as 'moble number' from student as studenttable
+
+
+
+innder join
+ select column_list from table1name innertjoin table2name on join condition
+
+left join
+select columnlist from table.name leftjoin table2name on join_condition
+
+right join
+select columnlist from table name right join table2 name on join condition
+
+
+cross join 
+select columnlist from table.name cross join table2name;
+
+like clause
+select * from table name where like '%s';
+
+order clause
+select columnlist from tablename  order by column1 
+if want 
+select columnlist from tablename  order by column1[asc|desc] 
+
+MariaDB [2020ece]> select * from employee where emp_name between 'A%' and 'L%'
